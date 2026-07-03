@@ -1,3 +1,5 @@
+import SearchResult from "../components/SearchResult";
+
 export default function Home() {
-  return <div></div>;
+  return <SearchResult />;
 }

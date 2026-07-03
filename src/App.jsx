@@ -2,10 +2,11 @@ import "./App.css";
 import NavBar from "./components/NavBar";
 import CategoriesMenu from "./components/CategoriesMenu";
 import SearchProvider from "./context/SearchContext";
-import SearchResult from "./components/SearchResult";
 import FavoriteProvider from "./context/FavoriteContext";
 import Favorites from "./components/Favorites";
 import BookProvider from "./context/BookContext";
+import { Outlet } from "react-router-dom";
+import DisplayProvider from "./context/DisplayContext";
 
 function App() {
   return (
@@ -13,14 +14,16 @@ function App() {
       <SearchProvider>
         <FavoriteProvider>
           <BookProvider>
-            <header>
-              <NavBar />
-              <CategoriesMenu />
-              <Favorites />
-            </header>
-            <main>
-              <SearchResult />
-            </main>
+            <DisplayProvider>
+              <header>
+                <NavBar />
+                <CategoriesMenu />
+                <Favorites />
+              </header>
+              <main>
+                <Outlet />
+              </main>
+            </DisplayProvider>
           </BookProvider>
         </FavoriteProvider>
       </SearchProvider>

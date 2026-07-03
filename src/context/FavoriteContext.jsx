@@ -1,6 +1,10 @@
 import { createContext } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
+{
+  /* Keeps track of favorited books */
+}
+
 export const FavoriteContext = createContext();
 
 export default function FavoriteProvider({ children }) {

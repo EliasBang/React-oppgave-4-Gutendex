@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { SearchContext } from "../context/SearchContext";
 import { getBooks } from "../api/getBooks";
+import { DisplayContext } from "../context/DisplayContext";
 
 const categories = [
   "Adventure",
@@ -26,17 +27,16 @@ export default function CategoriesMenu() {
     activeCategory,
     setActiveCategory,
   } = useContext(SearchContext);
+
+  const { displayCategories } = useContext(DisplayContext);
   return (
-    <div style={{ position: "absolute", left: "1rem", top: "1rem" }}>
+    <div className={`absolute-left ${displayCategories ? "open" : ""}`}>
       <p>Categories</p>
       <ul style={{ textAlign: "start" }}>
         {categories.map((category) => {
           return (
             <li
-              className={`category-hover ${activeCategory === category ? "category-active" : ""}`}
-              style={{
-                cursor: "pointer",
-              }}
+              className={`link-hover ${activeCategory === category ? "category-active" : ""}`}
               key={category}
               onClick={async () => {
                 const newCategory = activeCategory === category ? "" : category;

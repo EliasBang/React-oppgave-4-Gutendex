@@ -1,4 +1,6 @@
 export const getBooks = async (category, searchQuery, customURL) => {
+  /* Handles the input options */
+
   let searchParams = new URLSearchParams();
   if (category && searchQuery) {
     searchParams.append("topic", category);
@@ -6,10 +8,14 @@ export const getBooks = async (category, searchQuery, customURL) => {
   } else if (category) searchParams.append("topic", category);
   else if (searchQuery) searchParams.append("search", searchQuery);
 
-  const queryString = searchParams.toString();
+  /* Finalized query*/
 
+  const queryString = searchParams.toString();
   const url = `https://gutendex.com/books${queryString ? `?${queryString}` : ""}`;
   console.log(url);
+
+  /* Gets the data or fails with an error message */
+
   try {
     const response = await fetch(customURL ? customURL : url);
 

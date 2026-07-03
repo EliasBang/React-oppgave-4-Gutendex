@@ -17,7 +17,7 @@ export default function Search() {
   };
 
   return (
-    <>
+    <div>
       <input
         type="text"
         placeholder="Search..."
@@ -49,6 +49,6 @@ export default function Search() {
       >
         Go
       </button>
-    </>
+    </div>
   );
 }
