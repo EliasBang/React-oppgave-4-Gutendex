@@ -5,7 +5,7 @@ import BookDetails from "../pages/BookDetails";
 
 export const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/React-oppgave-4-Gutendex/",
     element: <App />,
     children: [
       {
